@@ -1,0 +1,17 @@
+@import 'bootstrap';
+
+div.question_border {
+  border-style: solid;
+  margin: 25px 25px 25px 25px;
+  }
+  
+div.submit {
+  margin: 25px 5px 25px 5px;
+}
+
+.field_with_errors {
+  .form-control{
+  border-style: dashed;
+  border-color: $red;
+  }
+}

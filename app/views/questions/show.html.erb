@@ -1,0 +1,31 @@
+    <% provide :page_title, 'Questions' %>
+    <% show_navbar('Questions') %>
+    <h2> Question </h2>
+    <div class="container">
+        <p class="lead my-3"> <%= @question.text%> </p> 
+        <time datetime="<%= @question.created_at.strftime('%Y-%m-%d %H:%M:%S') %> "> 
+          <%= @question.created_at%>
+        </time>
+    </div>
+      <br> 
+      <%# контейнер для ответов %>
+      <% unless @answers.nil?%>
+          <div class="container">
+          <div class="row g-2">
+            <%= render partial: 'answers/answer',
+              collection: @answers, as: :answer, locals: {question: @question}%>
+            </div>
+          </div>
+      <%end%>
+      <%# Конец контейнера ответов %>
+      
+      <br>
+      <%# форма ввода вопроса %>
+      <% if @question.answers.count < 4%>
+        <%=render 'answers/form' %>
+      <%end%>
+      <%#конец формы %>
+      
+    </div>
+    
+    

@@ -1,0 +1,11 @@
+<div class="col-6">
+  <div class="p-3 border bg-light <%=answer.right == true ? 'border-success'  : 'border-danger' %> ">
+    <%=answer.body%>
+      <div>
+        <%=link_to "Delete", question_answer_path(question, answer),
+        class: 'btn btn-danger btn-sm', data: {method: :delete}%>
+        <%=link_to "Correct answer", edit_question_answer_path(question, answer), class: 'btn 
+        btn-secondary btn-sm'%>
+    </div>
+  </div>
+</div>

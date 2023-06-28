@@ -1,0 +1,30 @@
+<%= render 'shared/errors', object: @user %>
+<%=form_with model: @user do |f|%>
+    <div class='row'>
+        <div class='col-3'>
+            <p class='form-label'>reference parameters</p>
+            <%=f.email_field :email, placeholder: 'Input @mail', class: 'mb-3 form-control' %>
+            <%=f.text_field :first_name, placeholder: 'Input first name', class: 'mb-3 form-control' %>
+            <%=f.text_field :second_name, placeholder: 'input second name', class: 'mb-3 form-control' %>
+            <%=f.text_field :famaly_name, placeholder: 'input famaly name', class: 'mb-3 form-control' %>
+        </div>
+        <div class='col-3'>
+            <p class='form-label'>*mandatory parameters</p>
+            <%=f.text_field :phone, placeholder: 'Input password', class: 'mb-3 form-control' %>
+            <%=f.password_field :password, placeholder: 'Input password', class: 'mb-3 form-control' %>
+            <%=f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'mb-3 form-control' %>
+            
+        <div>
+            <%=f.submit (@user.new_record? ? 'Register' : 'Edit'), class: 'btn btn-success' %>
+        </div>
+        </div>
+        <div class='col-3'>
+        <%unless @user.new_record?%>
+            <p class='form-label'>*mandatory for chenge password</p>
+            <%=f.password_field :old_password, placeholder: 'Old password', class: 'mb-3 form-control' %>
+            <%end%>
+        </div>
+    </div>
+<%end%>
+
+

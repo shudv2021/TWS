@@ -1,0 +1,4 @@
+<% show_navbar('Home') %>
+<h1>Example Page for User </h1>
+<%=current_user.first_name if user_signed_in?%>
+<%= Time.now.year%> 
